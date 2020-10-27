@@ -1,8 +1,14 @@
 language: java
 
+before_install:
+  - wget https://github.com/forax/java-next/releases/download/untagged-4890d0aa579cf85dd353/jdk-16-loom-linux.tar.gz
+  - tar -xf jdk-16-loom-linux.tar.gz
+  - export JAVA_HOME=jdk-16-loom-linux.tar.gz
+
 script:
   - mvn package
 
 matrix:
   include:
-    - env: DEPLOY='linux-early-access-loom' TAG="untagged-a6acf5c962e51cb48b3c" NAME="jdk-16-loom"
+    - env: DEPLOY='linux-early-access-loom'
+#      jdk: openjdk-16

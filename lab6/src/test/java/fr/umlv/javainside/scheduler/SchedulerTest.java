@@ -13,7 +13,7 @@ public class SchedulerTest {
     void fifo() {
         var resultList = new ArrayList<Integer>();
         var scope = new ContinuationScope("scope");
-        var scheduler = new Scheduler(SchedulerPolitics.FIFO);
+        var scheduler = new SchedulerOld(SchedulerPolitics.FIFO);
         new Continuation(scope, () -> { // Run en premier
             scheduler.enqueue(scope);
             resultList.add(0);
@@ -39,7 +39,7 @@ public class SchedulerTest {
     void stack() {
         var resultList = new ArrayList<Integer>();
         var scope = new ContinuationScope("scope");
-        var scheduler = new Scheduler(SchedulerPolitics.STACK);
+        var scheduler = new SchedulerOld(SchedulerPolitics.STACK);
         new Continuation(scope, () -> { // Run en premier
             scheduler.enqueue(scope);
             resultList.add(0);

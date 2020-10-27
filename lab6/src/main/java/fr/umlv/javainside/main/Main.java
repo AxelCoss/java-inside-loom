@@ -1,6 +1,6 @@
 package fr.umlv.javainside.main;
 
-import fr.umlv.javainside.scheduler.Scheduler;
+import fr.umlv.javainside.scheduler.SchedulerOld;
 import fr.umlv.javainside.scheduler.SchedulerPolitics;
 
 import java.util.List;
@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
         var scope = new ContinuationScope("scope");
-        var scheduler = new Scheduler(SchedulerPolitics.RANDOM);
+        var scheduler = new SchedulerOld(SchedulerPolitics.RANDOM);
         var continuation1 = new Continuation(scope, () -> {
             System.out.println("start 1");
             scheduler.enqueue(scope);
