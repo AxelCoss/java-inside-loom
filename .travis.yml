@@ -1,10 +1,8 @@
 language: java
-jdk: openjdk16
 
 script:
   - mvn package
 
-os:
-  - linux
-  - osx
-
+matrix:
+  include:
+    - env: DEPLOY='linux-early-access-loom' TAG="untagged-a6acf5c962e51cb48b3c" NAME="jdk-16-loom"
